@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+coverage/
+
+# Vercel / Render deployments
+.vercel/
+.yarn/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# npm debug file
+npm-debug.log*
