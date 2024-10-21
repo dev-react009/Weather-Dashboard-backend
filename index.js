@@ -16,9 +16,14 @@ const FORECAST_BASE_URL = 'https://api.weatherapi.com/v1/forecast.json';
 // In-memory data store for historical weather data
 let historicalData = {};
 
+const corsOptions = {
+    origin: 'http://localhost:5173', // Allow requests from this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+};
 // Middleware to parse JSON bodies and handle CORS
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Test route
 app.get('/', (req, res) => {
