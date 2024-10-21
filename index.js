@@ -26,11 +26,20 @@ let historicalData = {};
 const corsOptions = {
     origin: 'http://localhost:5173', // Allow requests from this origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
 };
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cors(corsOptions))
+
+app.get('/',(req,res)=>{
+    try{
+        res.status(400).json({message:"Server running"})
+    }
+    catch(error){
+        res.status(500).json({message:error.message})
+    }
+})
+
 // GET /api/current - Fetch current weather data for London
 app.get('/api/current', async (req, res) => {
     try {
