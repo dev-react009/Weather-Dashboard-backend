@@ -24,12 +24,12 @@ let historicalData = {};
 
 // // CORS options
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow requests from this origin
+    origin: ['http://localhost:5173','https://weather-dashboard-frontend.vercel.app'] ,// Allow requests from this origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
 };
 // Middleware to parse JSON bodies
 app.use(express.json());
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.get('/',(req,res)=>{
     try{
