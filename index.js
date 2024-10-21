@@ -16,6 +16,14 @@ let historicalData = {};
 app.use(express.json());
 app.use(cors());
 
+app.get('/api/current', async (req, res) => {
+    try{
+        res.status(400).json({ message: "server running" })
+    }
+    catch(error){
+        res.status(500).json({ message: 'Error fetching weather data' })
+    }
+});
 // GET /api/current - Fetch current weather data for London
 app.get('/api/current', async (req, res) => {
     try {
