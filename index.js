@@ -5,9 +5,9 @@ const axios = require('axios');
 const app = express();
 
 // Access environment variables
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Port for local testing
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
-console.log(WEATHER_API_KEY)
+
 // Weather API URLs
 const CURRENT_BASE_URL = 'https://api.weatherapi.com/v1/current.json';
 const FUTURE_BASE_URL = 'https://api.weatherapi.com/v1/future.json';
@@ -52,13 +52,6 @@ app.get('/api/history', (req, res) => {
         res.status(404).json({ message: 'Sensor not found' });
     }
 });
-
-// Start the server only in development
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server running at http://localhost:${PORT}`);
-    });
-}
 
 // Export app for Vercel
 module.exports = app;
